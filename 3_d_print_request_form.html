@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>3D Print Request Form</title>
+
   <style>
     * {
       box-sizing: border-box;
@@ -224,8 +225,10 @@
     }
   </style>
 </head>
+
 <body>
   <div class="page-wrapper">
+
     <header>
       <h1>3D Print Request Form</h1>
       <p>Submit an idea, picture, or link for something you want 3D printed.</p>
@@ -233,53 +236,89 @@
 
     <div class="notice-box">
       <h2>Quick Note</h2>
+
       <p>
         This link/pilot test is only for friends and family right now, and on that note, all requests/prints are free.
         I need ideas for things to print, so feel free to submit creative, useful, or custom ideas.
       </p>
+
       <p>
-        FYI: I am strictly using PLA for now. PLA is a standard plastic that is fairly durable depending on the shape, size, and design of the object.
+        FYI: Using both PLA and PETG (lots of colors coming soon!)
       </p>
+
       <p>
-        I may reach out or decline a request if the object is too large, too complex, unsafe or inappropriate,
-        needs material other than PLA, has an unprintable file/model, or would be too time intensive or use too much filament for this pilot test.
-        If you’re unsure whether your print violates any of these terms, please submit it anyway and I’ll let you know — it’s no trouble.
+        I may reach out or decline a request if the object is too large, too complex, unsafe/inappropriate,
+        needs a different material, has an unprintable file/model, or is too time intensive or filament-heavy for this pilot test.
+        If you're unsure, submit it anyway and I'll let you know — it's no trouble.
       </p>
+
       <p>
         If the print is on the larger side, a small $5–$10 donation would be appreciated to help buy more filament.
         Do not send any money if your object is small, even if it is complicated or custom.
       </p>
+
       <p>
-        Thank you — excited to see your ideas!
+        Thank you — excited to see your ideas.
       </p>
     </div>
 
-    <!-- Replace the URL below with your Google Apps Script Web App URL. -->
     <form id="printRequestForm" name="3d-print-request">
-      <input type="hidden" id="scriptUrl" value="https://script.google.com/macros/s/AKfycbxVpoZOSu6EFyw10c-Ukyb8g_vOmmikCvUAduXsdjshF9o1jQ1wv9CAy7Hq9H6gmws4/exec" />
+
+      <input
+        type="hidden"
+        id="scriptUrl"
+        value="https://script.google.com/macros/s/AKfycbxVpoZOSu6EFyw10c-Ukyb8g_vOmmikCvUAduXsdjshF9o1jQ1wv9CAy7Hq9H6gmws4/exec"
+      />
+
+      <!-- SECTION 1 -->
 
       <section>
         <h2>1. Contact Info</h2>
-        <p class="note">Tell me who you are so I know who the request is for.</p>
 
         <label for="name">Name</label>
-        <input type="text" id="name" name="name" placeholder="Your name" required />
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Your name"
+          required
+        />
 
         <label for="contact_info">Phone Number or Email</label>
-        <input type="text" id="contact_info" name="contact_info" placeholder="Your phone number or email" required />
+        <input
+          type="text"
+          id="contact_info"
+          name="contact_info"
+          placeholder="Your phone number or email"
+        />
       </section>
+
+      <!-- SECTION 2 -->
 
       <section>
         <h2>2. What Do You Want Printed?</h2>
-        <p class="note">Describe the item in plain English. You do not need to know 3D printing terms.</p>
+
+        <p class="note">
+          Describe the item in plain English. You do not need to know 3D printing terms.
+        </p>
 
         <label for="item_name">Item Name</label>
-        <input type="text" id="item_name" name="item_name" placeholder="Example: phone stand, keychain, wall hook" />
+        <input
+          type="text"
+          id="item_name"
+          name="item_name"
+          placeholder="Example: phone stand, keychain, wall hook"
+        />
 
         <label for="description">Short Description</label>
-        <textarea id="description" name="description" placeholder="Describe what you want printed."></textarea>
+        <textarea
+          id="description"
+          name="description"
+          placeholder="Describe what you want printed."
+        ></textarea>
 
         <p class="note">Some simple print ideas:</p>
+
         <ul class="links-list">
           <li>Keychains, name tags, or bag tags</li>
           <li>Phone stands, controller stands, or headphone hooks</li>
@@ -289,62 +328,163 @@
         </ul>
 
         <label>What will it be used for?</label>
+
         <div class="radio-group">
-          <label class="radio-row"><input type="radio" name="use_type" value="Decoration" /> Decoration</label>
-          <label class="radio-row"><input type="radio" name="use_type" value="Useful everyday item" /> Useful everyday item</label>
-          <label class="radio-row"><input type="radio" name="use_type" value="Replacement part" /> Replacement part</label>
-          <label class="radio-row"><input type="radio" name="use_type" value="Gift" /> Gift</label>
-          <label class="radio-row"><input type="radio" name="use_type" value="Other" /> Other</label>
+          <label class="radio-row">
+            <input type="radio" name="use_type" value="Decoration" />
+            Decoration
+          </label>
+
+          <label class="radio-row">
+            <input type="radio" name="use_type" value="Useful everyday item" />
+            Useful everyday item
+          </label>
+
+          <label class="radio-row">
+            <input type="radio" name="use_type" value="Replacement part" />
+            Replacement part
+          </label>
+
+          <label class="radio-row">
+            <input type="radio" name="use_type" value="Gift" />
+            Gift
+          </label>
+
+          <label class="radio-row">
+            <input type="radio" name="use_type" value="Other" />
+            Other
+          </label>
         </div>
       </section>
 
+      <!-- SECTION 3 -->
+
       <section>
         <h2>3. Model, Link, Picture, or Custom Design</h2>
+
         <p class="note">
           You do not need to have a 3D model ready. You can send me an idea, a picture, or a link.
           I can also help search for something similar, or I can try to make a simple custom design.
         </p>
 
         <p class="note">Helpful places to browse for ideas:</p>
+
         <ul class="links-list">
-          <li><a href="https://www.printables.com/" target="_blank" rel="noopener">Printables</a></li>
-          <li><a href="https://www.thingiverse.com/" target="_blank" rel="noopener">Thingiverse</a></li>
-          <li><a href="https://makerworld.com/en" target="_blank" rel="noopener">MakerWorld</a></li>
-          <li><a href="https://thangs.com/" target="_blank" rel="noopener">Thangs</a></li>
+          <li>
+            <a
+              href="https://makerworld.com/en"
+              target="_blank"
+              rel="noopener"
+            >
+              MakerWorld
+            </a>
+            (preferred site for ideas)
+          </li>
+
+          <li>
+            <a
+              href="https://www.thingiverse.com/"
+              target="_blank"
+              rel="noopener"
+            >
+              Thingiverse
+            </a>
+          </li>
         </ul>
 
         <p class="note">
-          Tip: simple-looking models are usually better for now. Some models online may be unreliable, oversized,
-          or require extra post-processing like screws, sanding, glue, or assembly. If something looks too good to be true,
-          it may be harder to print than it looks.
+          <strong>Tip:</strong> Watch out for models that require extra parts like screws,
+          glue, or other hardware. These aren't impossible, but keep in mind they may need
+          to be purchased and assembled.
         </p>
 
         <label>What best describes your request?</label>
+
         <div class="radio-group">
-          <label class="radio-row"><input type="radio" name="model_option" value="I found a model online and have a link" /> I found a model online and have a link</label>
-          <label class="radio-row"><input type="radio" name="model_option" value="I have a picture or example" /> I have a picture or example</label>
-          <label class="radio-row"><input type="radio" name="model_option" value="Please help me search for a model" /> Please help me search for a model</label>
-          <label class="radio-row"><input type="radio" name="model_option" value="I want a simple custom design" /> I want a simple custom design</label>
-          <label class="radio-row"><input type="radio" name="model_option" value="I am not sure yet" /> I am not sure yet</label>
+          <label class="radio-row">
+            <input
+              type="radio"
+              name="model_option"
+              value="I found a model online and have a link"
+            />
+            I found a model online and have a link
+          </label>
+
+          <label class="radio-row">
+            <input
+              type="radio"
+              name="model_option"
+              value="I have a picture or example"
+            />
+            I have a picture or example
+          </label>
+
+          <label class="radio-row">
+            <input
+              type="radio"
+              name="model_option"
+              value="Please help me search for a model"
+            />
+            Please help me search for a model
+          </label>
+
+          <label class="radio-row">
+            <input
+              type="radio"
+              name="model_option"
+              value="I want a simple custom design"
+            />
+            I want a simple custom design
+          </label>
+
+          <label class="radio-row">
+            <input
+              type="radio"
+              name="model_option"
+              value="I am not sure yet"
+            />
+            I am not sure yet
+          </label>
         </div>
 
         <label for="model_link">Model or Idea Link</label>
-        <input type="url" id="model_link" name="model_link" placeholder="Paste a link here" />
+
+        <input
+          type="url"
+          id="model_link"
+          name="model_link"
+          placeholder="Paste a link here"
+        />
 
         <label for="picture_upload_1">Picture Upload 1</label>
-        <input type="file" id="picture_upload_1" name="picture_upload_1" accept="image/png, image/jpeg, image/jpg, image/heic, image/webp" />
+
+        <input
+          type="file"
+          id="picture_upload_1"
+          name="picture_upload_1"
+          accept="image/png, image/jpeg, image/jpg, image/heic, image/webp"
+        />
 
         <label for="picture_upload_2">Picture Upload 2</label>
-        <input type="file" id="picture_upload_2" name="picture_upload_2" accept="image/png, image/jpeg, image/jpg, image/heic, image/webp" />
 
-        <label for="picture_upload_3">Picture Upload 3</label>
-        <input type="file" id="picture_upload_3" name="picture_upload_3" accept="image/png, image/jpeg, image/jpg, image/heic, image/webp" />
+        <input
+          type="file"
+          id="picture_upload_2"
+          name="picture_upload_2"
+          accept="image/png, image/jpeg, image/jpg, image/heic, image/webp"
+        />
 
-        <p class="small-text">Allowed attachments: pictures only, such as JPG, PNG, HEIC, or WEBP. Max size: 5 MB each.</p>
+        <p class="small-text">
+          Allowed attachments: pictures only, such as JPG, PNG, HEIC, or WEBP.
+          Max size: 5 MB each.
+        </p>
       </section>
+
+      <!-- SECTION 4 -->
 
       <section>
         <h2>4. Size</h2>
+
         <p class="note">
           Give your best guess. If you are not sure, choose a general size and I can help figure it out.
           As a rough reference, the maximum single-piece print size is about 10 in × 10 in × 10 in.
@@ -353,97 +493,269 @@
         </p>
 
         <label for="approx_size">Approximate Size</label>
+
         <select id="approx_size" name="approx_size">
           <option value="">Select one</option>
-          <option value="Small">Small — keychain, cable clip, small tag, under about 3 in</option>
-          <option value="Medium">Medium — phone stand, desk item, small organizer, about 3–7 in</option>
-          <option value="Large">Large — close to 8–10 in, multi-piece, or needs assembly</option>
+          <option value="Small">
+            Small — keychain, cable clip, small tag, under about 3 in
+          </option>
+
+          <option value="Medium">
+            Medium — phone stand, desk item, small organizer, about 3–7 in
+          </option>
+
+          <option value="Large">
+            Large — close to 8–10 in, multi-piece, or needs assembly
+          </option>
+
           <option value="Not sure">Not sure</option>
         </select>
 
         <label for="exact_size">Exact Size, Optional</label>
-        <input type="text" id="exact_size" name="exact_size" placeholder="Example: 3 in × 3 in × 5 in" />
+
+        <input
+          type="text"
+          id="exact_size"
+          name="exact_size"
+          placeholder="Example: 3 in × 3 in × 5 in"
+        />
 
         <label>Does the size need to be exact?</label>
+
         <div class="radio-group">
-          <label class="radio-row"><input type="radio" name="exact_size_needed" value="Yes" /> Yes</label>
-          <label class="radio-row"><input type="radio" name="exact_size_needed" value="No, close is fine" /> No, close is fine</label>
-          <label class="radio-row"><input type="radio" name="exact_size_needed" value="Not sure" /> Not sure</label>
+          <label class="radio-row">
+            <input
+              type="radio"
+              name="exact_size_needed"
+              value="Yes"
+            />
+            Yes
+          </label>
+
+          <label class="radio-row">
+            <input
+              type="radio"
+              name="exact_size_needed"
+              value="No, close is fine"
+            />
+            No, close is fine
+          </label>
+
+          <label class="radio-row">
+            <input
+              type="radio"
+              name="exact_size_needed"
+              value="Not sure"
+            />
+            Not sure
+          </label>
         </div>
       </section>
+
+      <!-- SECTION 5 -->
 
       <section>
         <h2>5. Color</h2>
+
         <p class="note">
-          For now, I only print in black or white PLA plastic.
-          Potential future colors may include general colors, matte colors, or silk-style filament.
+          I prefer black and white, but several additional colors are coming soon.
+          If you want another color, ask and I'll see what I can do.
         </p>
 
         <div class="radio-group">
-          <label class="radio-row"><input type="radio" name="color" value="Black" /> Black</label>
-          <label class="radio-row"><input type="radio" name="color" value="White" /> White</label>
-          <label class="radio-row"><input type="radio" name="color" value="No preference" /> No preference</label>
+          <label class="radio-row">
+            <input type="radio" name="color" value="Black" />
+            Black
+          </label>
+
+          <label class="radio-row">
+            <input type="radio" name="color" value="White" />
+            White
+          </label>
+
+          <label class="radio-row">
+            <input type="radio" name="color" value="No preference" />
+            No preference
+          </label>
         </div>
       </section>
+
+      <!-- SECTION 6 -->
 
       <section>
         <h2>6. Use Details</h2>
-        <p class="note">These questions help me understand whether the object needs to fit, attach, or support something.</p>
+
+        <p class="note">
+          These questions help me understand whether the object needs to fit,
+          attach, or support something.
+        </p>
 
         <label>Will it need to hold weight?</label>
+
         <div class="radio-group">
-          <label class="radio-row"><input type="radio" name="hold_weight" value="Yes" /> Yes</label>
-          <label class="radio-row"><input type="radio" name="hold_weight" value="No" /> No</label>
-          <label class="radio-row"><input type="radio" name="hold_weight" value="Not sure" /> Not sure</label>
+          <label class="radio-row">
+            <input
+              type="radio"
+              name="hold_weight"
+              value="Yes"
+            />
+            Yes
+          </label>
+
+          <label class="radio-row">
+            <input
+              type="radio"
+              name="hold_weight"
+              value="No"
+            />
+            No
+          </label>
+
+          <label class="radio-row">
+            <input
+              type="radio"
+              name="hold_weight"
+              value="Not sure"
+            />
+            Not sure
+          </label>
         </div>
 
         <label>Does it need to fit into or attach to another object?</label>
+
         <div class="radio-group">
-          <label class="radio-row"><input type="radio" name="fit_object" value="Yes" /> Yes</label>
-          <label class="radio-row"><input type="radio" name="fit_object" value="No" /> No</label>
-          <label class="radio-row"><input type="radio" name="fit_object" value="Not sure" /> Not sure</label>
+          <label class="radio-row">
+            <input
+              type="radio"
+              name="fit_object"
+              value="Yes"
+            />
+            Yes
+          </label>
+
+          <label class="radio-row">
+            <input
+              type="radio"
+              name="fit_object"
+              value="No"
+            />
+            No
+          </label>
+
+          <label class="radio-row">
+            <input
+              type="radio"
+              name="fit_object"
+              value="Not sure"
+            />
+            Not sure
+          </label>
         </div>
       </section>
+
+      <!-- SECTION 7 -->
 
       <section>
         <h2>7. Deadline</h2>
-        <p class="note">Since I am doing this for practice, flexible timing is appreciated.</p>
+
+        <p class="note">
+          You'll probably get it when I feel like it tbh.
+        </p>
 
         <div class="radio-group">
-          <label class="radio-row"><input type="radio" name="deadline_option" value="No rush" /> No rush</label>
-          <label class="radio-row"><input type="radio" name="deadline_option" value="Preferred date" /> Preferred date</label>
+          <label class="radio-row">
+            <input
+              type="radio"
+              name="deadline_option"
+              value="No rush"
+            />
+            No rush
+          </label>
+
+          <label class="radio-row">
+            <input
+              type="radio"
+              name="deadline_option"
+              value="Preferred date"
+            />
+            Preferred date
+          </label>
         </div>
 
         <label for="preferred_date">Preferred Date</label>
-        <input type="text" id="preferred_date" name="preferred_date" placeholder="Example: next Friday, June 10, before a birthday, etc." />
+
+        <input
+          type="text"
+          id="preferred_date"
+          name="preferred_date"
+          placeholder="Example: next Friday, June 10, before a birthday, etc."
+        />
       </section>
+
+      <!-- SECTION 8 -->
 
       <section>
         <h2>8. Extra Notes</h2>
-        <p class="note">Add anything else that might help me understand what you want. Shoutout to whoever actually read all this.</p>
+
+        <p class="note">
+          Add anything else that might help me understand what you want.
+          Shoutout to whoever actually read all this.
+        </p>
 
         <label for="extra_notes">Extra Notes</label>
-        <textarea id="extra_notes" name="extra_notes" placeholder="Add any extra details here."></textarea>
+
+        <textarea
+          id="extra_notes"
+          name="extra_notes"
+          placeholder="Add any extra details here."
+        ></textarea>
 
         <label class="checkbox-row">
-          <input type="checkbox" name="call_this_week" />
+          <input
+            type="checkbox"
+            name="call_this_week"
+          />
+
           <span>Contact me sometime this week</span>
         </label>
       </section>
+
+      <!-- SECTION 9 -->
+
       <section>
         <h2>9. Need to Contact Me?</h2>
+
         <p class="note">
           Feel free to text my number or email me at
-          <button type="button" class="copy-email-button" id="copyEmailButton">shakibidris22@gmail.com</button>
+          <button
+            type="button"
+            class="copy-email-button"
+            id="copyEmailButton"
+          >
+            shakibidris22@gmail.com
+          </button>
+
           <span id="copyEmailStatus"></span>
-          with the subject header <strong>Print Request - Your Name</strong>.
+
+          with the subject header
+          <strong>Print Request - Your Name</strong>.
+        </p>
+
+        <p class="note">
+          You cannot access or edit your response after submitting.
+          If you forget something, feel free to submit another response
+          with the additional details.
         </p>
       </section>
 
       <div class="submit-area">
-        <button type="submit">Submit 3D Print Request</button>
+        <button type="submit">
+          Submit 3D Print Request
+        </button>
+
         <p id="formStatus" class="small-text"></p>
       </div>
+
     </form>
   </div>
 
@@ -476,6 +788,7 @@
         }
 
         const reader = new FileReader();
+
         reader.onload = () => {
           resolve({
             name: file.name,
@@ -483,6 +796,7 @@
             data: reader.result.split(",")[1]
           });
         };
+
         reader.onerror = reject;
         reader.readAsDataURL(file);
       });
@@ -493,57 +807,90 @@
 
       const scriptUrl = document.getElementById("scriptUrl").value;
 
-      if (!scriptUrl || scriptUrl.includes("YOUR_GOOGLE_APPS_SCRIPT")) {
-        statusMessage.textContent = "Website owner needs to add the Google Apps Script URL first.";
+      if (
+        !scriptUrl ||
+        scriptUrl.includes("YOUR_GOOGLE_APPS_SCRIPT")
+      ) {
+        statusMessage.textContent =
+          "Website owner needs to add the Google Apps Script URL first.";
         return;
       }
 
       statusMessage.textContent = "Submitting request...";
 
       const formData = new FormData(form);
-      const pictureUpload1 = document.getElementById("picture_upload_1").files[0];
-      const pictureUpload2 = document.getElementById("picture_upload_2").files[0];
-      const pictureUpload3 = document.getElementById("picture_upload_3").files[0];
-      const maxFileSize = 5 * 1024 * 1024; // 5 MB per picture
+
+      const pictureUpload1 =
+        document.getElementById("picture_upload_1").files[0];
+
+      const pictureUpload2 =
+        document.getElementById("picture_upload_2").files[0];
+
+      const maxFileSize = 5 * 1024 * 1024;
 
       if (pictureUpload1 && pictureUpload1.size > maxFileSize) {
-        statusMessage.textContent = "Picture 1 is too large. Please upload an image under 5 MB.";
+        statusMessage.textContent =
+          "Picture 1 is too large. Please upload an image under 5 MB.";
         return;
       }
 
       if (pictureUpload2 && pictureUpload2.size > maxFileSize) {
-        statusMessage.textContent = "Picture 2 is too large. Please upload an image under 5 MB.";
-        return;
-      }
-
-      if (pictureUpload3 && pictureUpload3.size > maxFileSize) {
-        statusMessage.textContent = "Picture 3 is too large. Please upload an image under 5 MB.";
+        statusMessage.textContent =
+          "Picture 2 is too large. Please upload an image under 5 MB.";
         return;
       }
 
       const payload = {
         submitted_at: new Date().toLocaleString(),
+
         name: formData.get("name") || "",
+
         phone: formData.get("contact_info") || "",
+
         email: formData.get("contact_info") || "",
+
         item_name: formData.get("item_name") || "",
+
         description: formData.get("description") || "",
+
         use_type: formData.get("use_type") || "",
+
         model_option: formData.get("model_option") || "",
+
         model_link: formData.get("model_link") || "",
+
         approx_size: formData.get("approx_size") || "",
+
         exact_size: formData.get("exact_size") || "",
-        exact_size_needed: formData.get("exact_size_needed") || "",
+
+        exact_size_needed:
+          formData.get("exact_size_needed") || "",
+
         color: formData.get("color") || "",
-        hold_weight: formData.get("hold_weight") || "",
-        fit_object: formData.get("fit_object") || "",
-        deadline_option: formData.get("deadline_option") || "",
-        preferred_date: formData.get("preferred_date") || "",
-        extra_notes: formData.get("extra_notes") || "",
-        call_this_week: formData.get("call_this_week") ? "Yes" : "No",
-        picture_upload_1: await fileToBase64(pictureUpload1),
-        picture_upload_2: await fileToBase64(pictureUpload2),
-        picture_upload_3: await fileToBase64(pictureUpload3)
+
+        hold_weight:
+          formData.get("hold_weight") || "",
+
+        fit_object:
+          formData.get("fit_object") || "",
+
+        deadline_option:
+          formData.get("deadline_option") || "",
+
+        preferred_date:
+          formData.get("preferred_date") || "",
+
+        extra_notes:
+          formData.get("extra_notes") || "",
+
+        call_this_week:
+          formData.get("call_this_week") ? "Yes" : "No",
+
+        picture_upload_1:
+          await fileToBase64(pictureUpload1),
+
+        picture_upload_2:
+          await fileToBase64(pictureUpload2)
       };
 
       try {
@@ -556,12 +903,17 @@
           body: JSON.stringify(payload)
         });
 
-        statusMessage.textContent = "Request submitted successfully. Thank you! Please refresh this tab before submitting another request.";
+        statusMessage.textContent =
+          "Request submitted successfully. Thank you! Please refresh this tab before submitting another request.";
+
         form.reset();
+
       } catch (error) {
-        statusMessage.textContent = "Something went wrong. Please try again or contact me directly.";
+        statusMessage.textContent =
+          "Something went wrong. Please try again or contact me directly.";
       }
     });
   </script>
+
 </body>
 </html>
