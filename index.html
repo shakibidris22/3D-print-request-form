@@ -656,31 +656,46 @@
 
       <!-- SECTION 5 -->
 
-      <section>
-        <h2>5. Color</h2>
+      <!-- SECTION 5 -->
 
-        <p class="note">
-          I prefer black and white, but several additional colors are coming soon.
-          If you want another color, ask and I'll see what I can do.
-        </p>
+<section>
+  <h2>5. Color</h2>
 
-        <div class="radio-group">
-          <label class="radio-row">
-            <input type="radio" name="color" value="Black" />
-            Black
-          </label>
+  <p class="note">
+    I prefer black and white, but several additional colors are coming soon.
+    If you want another color, select it below or enter a custom color and I'll see what I can do.
+  </p>
 
-          <label class="radio-row">
-            <input type="radio" name="color" value="White" />
-            White
-          </label>
+  <div class="checkbox-group">
+    <label class="checkbox-row">
+      <input type="checkbox" name="color" value="Black" />
+      Black
+    </label>
 
-          <label class="radio-row">
-            <input type="radio" name="color" value="No preference" />
-            No preference
-          </label>
-        </div>
-      </section>
+    <label class="checkbox-row">
+      <input type="checkbox" name="color" value="White" />
+      White
+    </label>
+
+    <label class="checkbox-row">
+      <input type="checkbox" name="color" value="No preference" />
+      No preference
+    </label>
+
+    <label class="checkbox-row">
+      <input type="checkbox" name="color" value="Other/Coming Soon" />
+      Other / Coming Soon
+    </label>
+  </div>
+
+  <label for="custom_color">Custom Color (Optional)</label>
+  <input
+    type="text"
+    id="custom_color"
+    name="custom_color"
+    placeholder="Example: red, blue, metallic gold"
+  />
+</section>
 
       <!-- SECTION 6 -->
 
@@ -981,7 +996,10 @@
         exact_size_needed:
           formData.get("exact_size_needed") || "",
 
-        color: formData.get("color") || "",
+        color: formData.getAll("color").join(", ") || "",
+        
+        custom_color: 
+          formData.get("custom_color") || "",
 
         hold_weight:
           formData.get("hold_weight") || "",
