@@ -996,9 +996,9 @@
         exact_size_needed:
           formData.get("exact_size_needed") || "",
 
-        color: formData.getAll("color").join(", ") || "",
-        
-        custom_color: 
+        color: formData.get("color") || "",
+
+        custom_color:
           formData.get("custom_color") || "",
 
         hold_weight:
