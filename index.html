@@ -27,7 +27,7 @@
 
     header {
       text-align: center;
-      margin-bottom: 24px;
+      margin-bottom: 18px;
     }
 
     header h1 {
@@ -38,6 +38,60 @@
     header p {
       margin: 0;
       color: #555;
+    }
+
+    /* Example image gallery */
+    .example-gallery {
+      margin: 18px 0 24px 0;
+      text-align: center;
+    }
+
+    .example-gallery > p {
+      margin: 0 0 10px 0;
+      color: #555;
+      font-size: 0.95rem;
+    }
+
+    .example-images {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .example-images img {
+      width: 31%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 10px;
+      cursor: pointer;
+      border: 1px solid #ddd;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .example-images img:hover {
+      opacity: 0.85;
+      transform: scale(1.02);
+    }
+
+    /* Expanded image overlay */
+    .image-modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.8);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      cursor: pointer;
+    }
+
+    .image-modal img {
+      max-width: 95%;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 10px;
+      cursor: default;
     }
 
     .notice-box {
@@ -193,6 +247,10 @@
       background: #333;
     }
 
+    .copy-email-button {
+      width: auto;
+    }
+
     .small-text {
       font-size: 0.85rem;
       color: #666;
@@ -222,6 +280,10 @@
       h2 {
         font-size: 1.15rem;
       }
+
+      .example-images img {
+        height: 110px;
+      }
     }
   </style>
 </head>
@@ -233,6 +295,45 @@
       <h1>3D Print Request Form</h1>
       <p>Submit an idea, picture, or link for something you want 3D printed.</p>
     </header>
+
+    <!-- EXAMPLE IMAGE GALLERY -->
+    <div class="example-gallery">
+      <p>Some examples — tap an image to view it larger.</p>
+
+      <div class="example-images">
+        <img
+          src="IMG_6316.jpg"
+          alt="Example 3D print"
+          onclick="openImage(this.src)"
+        />
+
+        <img
+          src="IMG_6887.jpg"
+          alt="Example 3D print"
+          onclick="openImage(this.src)"
+        />
+
+        <img
+          src="IMG_6888.jpg"
+          alt="Example 3D print"
+          onclick="openImage(this.src)"
+        />
+      </div>
+    </div>
+
+    <!-- EXPANDED IMAGE -->
+    <div
+      class="image-modal"
+      id="imageModal"
+      onclick="closeImage()"
+    >
+      <img
+        id="expandedImage"
+        src=""
+        alt="Expanded example"
+        onclick="event.stopPropagation()"
+      />
+    </div>
 
     <div class="notice-box">
       <h2>Quick Note</h2>
@@ -496,6 +597,7 @@
 
         <select id="approx_size" name="approx_size">
           <option value="">Select one</option>
+
           <option value="Small">
             Small — keychain, cable clip, small tag, under about 3 in
           </option>
@@ -765,6 +867,17 @@
     const copyEmailButton = document.getElementById("copyEmailButton");
     const copyEmailStatus = document.getElementById("copyEmailStatus");
 
+    /* Example image gallery */
+    function openImage(src) {
+      document.getElementById("expandedImage").src = src;
+      document.getElementById("imageModal").style.display = "flex";
+    }
+
+    function closeImage() {
+      document.getElementById("imageModal").style.display = "none";
+    }
+
+    /* Copy email */
     copyEmailButton.addEventListener("click", async function () {
       const email = "shakibidris22@gmail.com";
 
@@ -780,6 +893,7 @@
       }, 3000);
     });
 
+    /* Convert uploaded picture to Base64 */
     function fileToBase64(file) {
       return new Promise((resolve, reject) => {
         if (!file) {
@@ -802,6 +916,7 @@
       });
     }
 
+    /* Submit form */
     form.addEventListener("submit", async function (event) {
       event.preventDefault();
 
