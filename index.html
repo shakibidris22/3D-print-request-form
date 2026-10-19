@@ -660,37 +660,77 @@
         </div>
       </section>
 
-      <!-- SECTION 5 -->
 
-      <!-- SECTION 5 -->
+<!-- SECTION 5 -->
 
 <section>
   <h2>5. Color</h2>
 
   <p class="note">
-    I prefer black and white, but several additional colors are coming soon.
-    If you want another color, select it below or enter a custom color and I'll see what I can do.
+    Select one or more colors you'd like for your print.
+    Translucent colors allow some light to pass through but are not completely transparent.
+    If you want a color that isn't listed, enter it below and I'll see what I can do.
   </p>
 
   <div class="checkbox-group">
     <label class="checkbox-row">
-      <input type="checkbox" name="color" value="Black" />
-      Black
+      <input type="checkbox" name="color" value="Matte Black" />
+      Matte Black
     </label>
 
     <label class="checkbox-row">
-      <input type="checkbox" name="color" value="White" />
-      White
+      <input type="checkbox" name="color" value="Regular Black" />
+      Regular Black
+    </label>
+
+    <label class="checkbox-row">
+      <input type="checkbox" name="color" value="Mistletoe Green" />
+      Mistletoe Green
+    </label>
+
+    <label class="checkbox-row">
+      <input type="checkbox" name="color" value="Orange" />
+      Orange
+    </label>
+
+    <label class="checkbox-row">
+      <input type="checkbox" name="color" value="Red" />
+      Red
+    </label>
+
+    <label class="checkbox-row">
+      <input type="checkbox" name="color" value="Blue" />
+      Blue
+    </label>
+
+    <label class="checkbox-row">
+      <input type="checkbox" name="color" value="Jade White" />
+      Jade White
+    </label>
+
+    <label class="checkbox-row">
+      <input type="checkbox" name="color" value="Yellow" />
+      Yellow
+    </label>
+
+    <label class="checkbox-row">
+      <input type="checkbox" name="color" value="Ice Blue (Translucent)" />
+      Ice Blue (Translucent)
+    </label>
+
+    <label class="checkbox-row">
+      <input type="checkbox" name="color" value="Clear (Translucent)" />
+      Clear (Translucent)
+    </label>
+
+    <label class="checkbox-row">
+      <input type="checkbox" name="color" value="Cherry Pink (Translucent)" />
+      Cherry Pink (Translucent)
     </label>
 
     <label class="checkbox-row">
       <input type="checkbox" name="color" value="No preference" />
       No preference
-    </label>
-
-    <label class="checkbox-row">
-      <input type="checkbox" name="color" value="Other/Coming Soon" />
-      Other / Coming Soon
     </label>
   </div>
 
@@ -699,7 +739,7 @@
     type="text"
     id="custom_color"
     name="custom_color"
-    placeholder="Example: red, blue, metallic gold"
+    placeholder="Enter another color you'd prefer"
   />
 </section>
 
@@ -1002,7 +1042,7 @@
         exact_size_needed:
           formData.get("exact_size_needed") || "",
 
-        color: formData.get("color") || "",
+        color: formData.getAll("color").join(", "),
 
         custom_color:
           formData.get("custom_color") || "",
